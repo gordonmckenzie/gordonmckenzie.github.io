@@ -1,0 +1,99 @@
+@use "sass:math";
+
+ $conversionRatioSpToRemWeb: math.div(1, 16); //! 0.0625;
+  $conversionRatioRemToPxWeb: 16.0; 
+  // Scales
+  @function spToRem($sps){
+    @return $sps * $conversionRatioSpToRemWeb;
+  };
+  @function remToPx($rems){
+    @return $rems * $conversionRatioRemToPxWeb;
+  };
+  @function spacing($tracking, $px){
+    @return math.div($tracking, $px);
+  };
+  @mixin mat-typo($size, $weight, $spacing) {
+    font-weight:  $weight;
+    font-size: #{spToRem($size)}rem;
+    letter-spacing: #{spacing($spacing, remToPx($size))}px;
+  }
+  // Weights
+  $font-weight-thin:    100;
+  $font-weight-light:   300;
+  $font-weight-regular: 400;
+  $font-weight-medium:  500;
+  $font-weight-bold:    700;
+  $font-weight-black:   900;
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 1em 0 0.5em;
+}
+
+.h1 {  @include mat-typo(96, $font-weight-light, -1.5);  }
+.h2 {  @include mat-typo(60, $font-weight-light, -.5);   }
+.h3 {  @include mat-typo(48, $font-weight-regular, 0);   }
+.h4 {  @include mat-typo(34, $font-weight-regular, .25); }
+.h5 {  @include mat-typo(24, $font-weight-regular, 0);   }
+.h6 {  @include mat-typo(20, $font-weight-medium, .15);  }
+  
+.subtitle1 { @include mat-typo(16, $font-weight-regular, .15); }
+.subtitle2 { @include mat-typo(14, $font-weight-medium, .1);   }
+.body1     { @include mat-typo(16, $font-weight-regular, .5);  }
+.body2     { @include mat-typo(14, $font-weight-regular, .25); }
+.button {  
+@include mat-typo(14, $font-weight-medium, .75); 
+    text-transform: uppercase;
+}
+.caption {  @include mat-typo(12, $font-weight-regular, .4); }
+.overline {  
+@include mat-typo(10, $font-weight-regular, 1.5);
+    text-transform: uppercase;
+}
+
+.light {
+    font-weight: 300 !important;
+}
+
+.thin {
+    font-weight: 100 !important;
+}
+
+.medium {
+    font-weight: 500 !important;
+}
+
+.bold {
+  font-weight: 600 !important;
+}
+
+.italic {
+  font-style: italic !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-grey {
+  color: #898F9C;
+}
+
+.text-primary {
+  color: $primary !important;
+}
+
+.text-secondary {
+  color: $secondary !important;
+}
+
+.text-tertiary {
+  color: $tertiary !important;
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}

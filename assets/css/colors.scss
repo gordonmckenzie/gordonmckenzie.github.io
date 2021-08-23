@@ -1,0 +1,32 @@
+$primary:#8b80f9; //#5941a9; 
+$dark: #5653c5;
+$light: #bfb0ff;
+$background-light: #f8f4ff;
+$secondary: #ffbfb7;
+$tertiary: #0b7a75;
+$quartenary: #ff37a6;
+$black: #020300;
+$red: #ff1744;
+$text-grey: rgb(17, 13, 13);
+$border: #e6ecf0;
+$white: #ffffff;
+
+.primary {
+    color: $primary;
+}
+
+.secondary {
+    color: $secondary;
+}
+
+.tertiary{
+    color: $tertiary;
+}
+
+.red{
+    color: $red;
+}
+
+.text-grey {
+    color: $text-grey; 
+}
